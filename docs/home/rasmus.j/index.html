@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:paleturquoise">
+    <h1>My very good website</h1>
+    <b style="color:red">Yes it really is</b>
+    <br>
+    <button id="Knapp" onclick="clickFunction()">Click</button>
+    <br>
+    <button id="Upgradera" onclick="upgradeFunction()">Buy Upgrade</button>
+    <label id="UpgradePrice"></label>
+
+<script>
+var clicks = 0
+var multiplier = 1
+var inflation = 1
+function clickFunction(){
+    clicks = clicks + 1 * multiplier
+    document.getElementById("Knapp").innerHTML = clicks
+}
+
+function upgradeFunction(){
+    var price = 10 * inflation
+    document.getElementById("UpgradePrice").innerHTML = price
+    if (clicks >= price){
+        clicks = clicks - 10 * inflation
+        multiplier = multiplier + 1
+        inflation = inflation + 1.5
+        document.getElementById("Knapp").innerHTML = clicks
+    }
+}
+
+</script>
+</body>
+</html>
